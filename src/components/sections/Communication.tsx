@@ -1,9 +1,8 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarContent, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { MessageSquare, Send, Paperclip, Phone, Video, Search } from "lucide-react";
 import { useState } from "react";
 
@@ -128,10 +127,9 @@ export const Communication = () => {
                 >
                   <div className="flex items-start space-x-3">
                     <Avatar className="w-10 h-10">
-                      <AvatarContent className="bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                      <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-600 text-white">
                         {chat.avatar}
-                      </AvatarContent>
-                      <AvatarFallback>{chat.avatar}</AvatarFallback>
+                      </AvatarFallback>
                     </Avatar>
                     
                     <div className="flex-1 min-w-0">
@@ -161,10 +159,9 @@ export const Communication = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <Avatar>
-                  <AvatarContent className="bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                  <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-600 text-white">
                     {selectedChatData?.avatar}
-                  </AvatarContent>
-                  <AvatarFallback>{selectedChatData?.avatar}</AvatarFallback>
+                  </AvatarFallback>
                 </Avatar>
                 <div>
                   <h3 className="font-semibold text-slate-800">{selectedChatData?.name}</h3>
@@ -195,14 +192,13 @@ export const Communication = () => {
                     message.isAgency ? 'flex-row' : 'flex-row-reverse space-x-reverse'
                   }`}>
                     <Avatar className="w-8 h-8">
-                      <AvatarContent className={`text-white text-sm ${
+                      <AvatarFallback className={`text-white text-sm ${
                         message.isAgency 
                           ? 'bg-gradient-to-br from-blue-500 to-purple-600' 
                           : 'bg-gradient-to-br from-green-500 to-blue-500'
                       }`}>
                         {message.avatar}
-                      </AvatarContent>
-                      <AvatarFallback>{message.avatar}</AvatarFallback>
+                      </AvatarFallback>
                     </Avatar>
                     
                     <div className={`${message.isAgency ? 'text-left' : 'text-right'}`}>
